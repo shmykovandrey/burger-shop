@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components"
 
 
@@ -7,8 +6,9 @@ html{
   box-sizing:border-box;
 }
 *,
-*::befor,
-*::after{
+*::before,
+*::after,
+p{
   box-sizing:border-box;
   margin:0px;
   padding:0px;

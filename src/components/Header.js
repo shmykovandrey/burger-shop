@@ -13,14 +13,14 @@ const HeaderStyle = styled.div`
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  padding: 30px;
 `
 
 const H1 = styled.h1`
   color:#fff;
   display: flex;
   align-items: center;
-  font-family: pacifico, sans-serif;
-  padding-left: 25px;
+  font-family: Pacifico, sans-serif;
 `
 
 const Enter = styled.a`
@@ -28,7 +28,6 @@ const Enter = styled.a`
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  padding-right: 25px;
 `;
 
 export const Header = () => {
