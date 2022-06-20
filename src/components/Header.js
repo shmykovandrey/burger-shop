@@ -4,7 +4,8 @@ import logo from "../svg/fast-food.svg"
 import user from "../svg/user.svg"
 
 
-const HeaderStyle = styled.div`
+const HeaderStyle = styled.header`
+box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,6 +29,7 @@ const Enter = styled.a`
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  font-family: Roboto, sans-serif;
 `;
 
 export const Header = () => {

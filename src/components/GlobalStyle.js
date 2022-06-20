@@ -1,20 +1,23 @@
-import styled from "styled-components"
+import { createGlobalStyle } from "styled-components"
 
-
-export const GlobalStyle = styled.div`
+export const GlobalStyle = createGlobalStyle`
 html{
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
+
 *,
 *::before,
 *::after,
 p{
-  box-sizing:border-box;
-  margin:0px;
-  padding:0px;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
+
 body{
-  font-family: Roboto, sans-serif;
+  width: 1440px;
+  margin: 0 auto;
+  font-family: 'Pacifico', sans-serif;
 }
 
 a{

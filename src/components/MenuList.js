@@ -29,13 +29,13 @@ z-index: 1;
   }
 }
 `
-
-export const MenuList = ({ item }) => (
+export const MenuList = ({ item, setOpenItem }) => (
 
   allMenu[item].map((burger) => (
     <LiItems
       img={burger.img}
       key={burger.id}
+      onClick={() => setOpenItem(burger)}
     >
       <p>{burger.name}</p>
       <p>{burger.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}</p>

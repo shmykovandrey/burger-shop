@@ -1,15 +1,19 @@
 import React from 'react';
+import { GlobalStyle } from './components/GlobalStyle';
 import { Header } from './components/Header';
 import { Menu } from './components/Menu';
-import { GlobalStyle } from './components/GlobalStyle';
-
+import { ModalWindow } from './components/ModalWindow';
 
 function App() {
+  const [openItem, setOpenItem] = React.useState(null);
+  console.log(openItem)
   return (
-    <GlobalStyle>
+    <>
+      <GlobalStyle />
       <Header />
-      <Menu />
-    </GlobalStyle>
+      <Menu setOpenItem={setOpenItem} />
+      <ModalWindow openItem={openItem} setOpenItem={setOpenItem} />
+    </>
   );
 }
 
