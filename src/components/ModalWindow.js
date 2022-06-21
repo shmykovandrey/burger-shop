@@ -44,7 +44,6 @@ const ContentHeader = styled.div`
   width: 600px;
   display: flex;
   justify-content: space-evenly;
-
 `
 
 export const ModalWindow = ({ openItem, setOpenItem }) => {
