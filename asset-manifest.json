@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/burger-shop/static/css/main.e6c13ad2.css",
-    "main.js": "/burger-shop/static/js/main.01662a03.js",
-    "static/js/787.9091863a.chunk.js": "/burger-shop/static/js/787.9091863a.chunk.js",
-    "static/media/banner.png": "/burger-shop/static/media/banner.9b6cf3eef84baf1886a6.png",
-    "static/media/fast-food.svg": "/burger-shop/static/media/fast-food.cc8d31f6030399402c28ae6dc9e0501f.svg",
-    "static/media/user.svg": "/burger-shop/static/media/user.a39004e9757c7faeae2469ad17e9090b.svg",
-    "index.html": "/burger-shop/index.html",
-    "main.e6c13ad2.css.map": "/burger-shop/static/css/main.e6c13ad2.css.map",
-    "main.01662a03.js.map": "/burger-shop/static/js/main.01662a03.js.map",
-    "787.9091863a.chunk.js.map": "/burger-shop/static/js/787.9091863a.chunk.js.map"
+    "main.css": "/burger-shop/burger-shop/static/css/main.e6c13ad2.css",
+    "main.js": "/burger-shop/burger-shop/static/js/main.f1d3b479.js",
+    "static/js/787.9091863a.chunk.js": "/burger-shop/burger-shop/static/js/787.9091863a.chunk.js",
+    "static/media/banner.png": "/burger-shop/burger-shop/static/media/banner.9b6cf3eef84baf1886a6.png",
+    "static/media/fast-food.svg": "/burger-shop/burger-shop/static/media/fast-food.cc8d31f6030399402c28ae6dc9e0501f.svg",
+    "static/media/user.svg": "/burger-shop/burger-shop/static/media/user.a39004e9757c7faeae2469ad17e9090b.svg",
+    "index.html": "/burger-shop/burger-shop/index.html",
+    "main.e6c13ad2.css.map": "/burger-shop/burger-shop/static/css/main.e6c13ad2.css.map",
+    "main.f1d3b479.js.map": "/burger-shop/burger-shop/static/js/main.f1d3b479.js.map",
+    "787.9091863a.chunk.js.map": "/burger-shop/burger-shop/static/js/787.9091863a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.01662a03.js"
+    "static/js/main.f1d3b479.js"
   ]
 }
