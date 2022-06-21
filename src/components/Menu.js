@@ -14,16 +14,16 @@ const BannerStyle = styled.img`
   width: 1060px;
 `
 
-export const Menu = () => (
+export const Menu = ({ setOpenItem }) => (
   <>
     <BannerStyle src={Banner} alt='Banner' />
     <h2>Бургеры</h2>
     <UlList>
-      <MenuList item='burger' />
+      <MenuList item='burger' setOpenItem={setOpenItem} />
     </UlList>
     <h2>Закуски/Напитки</h2>
     <UlList>
-      <MenuList item='other' />
+      <MenuList item='other' setOpenItem={setOpenItem} />
     </UlList>
   </>
 );

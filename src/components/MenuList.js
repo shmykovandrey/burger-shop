@@ -8,7 +8,7 @@ width: 400px;
 height: 155px;
 color: #fff;
 font-size: 30px;
-background-image: url(${props => props.img});
+background-image: url(${props => './burger-shop' + props.img});
 z-index: 1;
 &::after{
   content: '';
@@ -30,12 +30,13 @@ z-index: 1;
 }
 `
 
-export const MenuList = ({ item }) => (
+export const MenuList = ({ item, setOpenItem }) => (
 
   allMenu[item].map((burger) => (
     <LiItems
       img={burger.img}
       key={burger.id}
+      onClick={() => setOpenItem(burger)}
     >
       <p>{burger.name}</p>
       <p>{burger.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}</p>

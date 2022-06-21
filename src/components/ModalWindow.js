@@ -25,7 +25,7 @@ const ModalStyle = styled.div`
 const BannerModal = styled.div`
   width: 600px;
   height: 200px;
-  background-image: url(${props => props.openItem.img});
+  background-image: url(${props => 'burger-shop/' + props.openItem.img});
   background-position: center;
   background-size: cover;
 `
@@ -47,6 +47,7 @@ const ContentHeader = styled.div`
 `
 
 export const ModalWindow = ({ openItem, setOpenItem }) => {
+  console.log(openItem)
   if (!openItem) return null
   return <>
     <Overlay id='overlay' onClick={(e) => setOpenItem(null)} />
