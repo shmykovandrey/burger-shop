@@ -8,7 +8,7 @@ width: 400px;
 height: 155px;
 color: #fff;
 font-size: 30px;
-background-image: url(${props => './burger-shop' + props.img});
+background-image: url(${props => '.' + props.img});
 z-index: 1;
 &::after{
   content: '';

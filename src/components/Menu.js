@@ -12,6 +12,9 @@ const UlList = styled.ul`
 
 const BannerStyle = styled.img`
   width: 1060px;
+  height: 210px;
+  background-size: cover;
+  background-position: center;
 `
 
 export const Menu = ({ setOpenItem }) => (
