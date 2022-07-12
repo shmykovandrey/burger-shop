@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const OrderStyle = styled.div`
-  width: 380px;
+  min-width: 380px;
   height: 1666px;
+  background-color: greenyellow;
 `
 
 const OrderHeader = styled.div`

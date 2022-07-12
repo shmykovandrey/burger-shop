@@ -18,7 +18,7 @@ const BannerStyle = styled.img`
 `
 
 export const Menu = ({ setOpenItem }) => (
-  <>
+  <div>
     <BannerStyle src={Banner} alt='Banner' />
     <h2>Бургеры</h2>
     <UlList>
@@ -28,5 +28,5 @@ export const Menu = ({ setOpenItem }) => (
     <UlList>
       <MenuList item='other' setOpenItem={setOpenItem} />
     </UlList>
-  </>
+  </div>
 );
