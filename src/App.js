@@ -1,12 +1,12 @@
 import React from 'react';
-import { Header } from './components/Header';
-import { Menu } from './components/Menu';
-import { GlobalStyle } from './components/GlobalStyle';
-import { ModalWindow } from './components/ModalWindow';
-import { Order } from './components/Order';
-import { Main } from './components/Main';
-import { useStateOpenItem } from './components/useStateOpenItem'
-import { useStateOrderItem } from './components/useStateOrderItem'
+import { Header } from './components/Header/Header';
+import { Menu } from './components/Menu/Menu';
+import { GlobalStyle } from './components/Styled/GlobalStyle';
+import { ModalWindow } from './components/Modal/ModalWindow';
+import { Order } from './components/Order/Order';
+import { Main } from './components/Menu/Main';
+import { useStateOpenItem } from './components/Hooks/useStateOpenItem'
+import { useStateOrderItem } from './components/Hooks/useStateOrderItem'
 
 function App() {
   const useOpenItem = useStateOpenItem();

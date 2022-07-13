@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components"
 import { MenuList } from "./MenuList";
-import Banner from "../svg/banner.png"
+import Banner from "../../svg/banner.png"
 
 const UlList = styled.ul`
   margin: 0 auto;

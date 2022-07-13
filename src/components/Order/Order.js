@@ -1,24 +1,32 @@
 import React from "react";
 import styled from "styled-components";
+import { CheckoutButton } from "../Styled/CheckoutButton";
 import { OrderItem } from "./OrderItem"
-import { CheckoutButton } from "./CheckoutButton";
 import { OrderTotal } from "./OrderTotal"
 
 const OrderStyle = styled.div`
   min-width: 380px;
-  min-height: 100%;
+  height: calc(100vh - 80px);
+  max-height: 200vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   background-color: #fff;
   border-right: 4px solid #f2f2f2;
-  /* box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.25); */
 `
 
-const OrderHeader = styled.div`
+const OrderBody = styled.div`
   text-align: center;
   margin: 20px;
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  & div:last-child{
+
+    background-color: green;
+  }
 `
 
 const OrderTitle = styled.h2`
@@ -30,17 +38,17 @@ const OrderList = styled.ul`
 width: 100%;
 `;
 
-export const Order = ({ orders }) => {
+export const Order = ({ orders, setOrders }) => {
   return (
     <OrderStyle>
-      <OrderHeader>
+      <OrderBody>
         <OrderTitle>ВАШ ЗАКАЗ</OrderTitle>
         <OrderList>
-          {orders.length === 0 ? <p>Нет никаких ордеров</p> :
-            orders.map(order => <OrderItem order={order} />)
+          {orders.length === 0 ? <p>Ваш заказ пуст</p> :
+            orders.map((order, i) => <OrderItem key={i} order={order} orders={orders} setOrders={setOrders} />)
           }
         </OrderList>
-      </OrderHeader>
+      </OrderBody>
       <OrderTotal />
       <CheckoutButton>Оформить</CheckoutButton>
     </OrderStyle>

@@ -21,8 +21,8 @@ body{
   background-color: #E5E5E5;
 }
 
-a{
-  font: inherit;
+a, div, span, button{
+  font-size: inherit;
 }
 
 li{
@@ -31,5 +31,10 @@ li{
 
 #root{
   min-height: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
 }
 `

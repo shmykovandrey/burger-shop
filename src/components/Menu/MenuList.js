@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components"
-import allMenu from "./DBMenu"
+import allMenu from "../DBMenu"
+import { toLocaleLang } from "../basicFunction";
+
 
 const LiItems = styled.li`
 position: relative;
@@ -29,6 +31,9 @@ z-index: 1;
   }
 }
 `
+const PStyled = styled.p`
+padding: 5px 10px 0px;
+`;
 
 export const MenuList = ({ item, setOpenItem }) => (
 
@@ -38,8 +43,8 @@ export const MenuList = ({ item, setOpenItem }) => (
       key={burger.id}
       onClick={() => setOpenItem(burger)}
     >
-      <p>{burger.name}</p>
-      <p>{burger.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}</p>
+      <PStyled>{burger.name}</PStyled>
+      <PStyled>{toLocaleLang(burger.price)}</PStyled>
     </LiItems>))
 
 )

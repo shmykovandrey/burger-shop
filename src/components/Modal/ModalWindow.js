@@ -1,5 +1,10 @@
 import styled from "styled-components"
-import { CheckoutButton } from "./CheckoutButton"
+import { CheckoutButton } from "../Styled/CheckoutButton"
+import { CountItem } from "./CountItem"
+import { TotalCountPrice } from "./TotalCountPrice"
+import { useCount } from "../Hooks/useCount";
+import { toLocaleLang } from "../basicFunction";
+
 
 const Overlay = styled.div`
   position: fixed;
@@ -46,8 +51,6 @@ const ContentHeader = styled.div`
   justify-content: space-evenly;
 `
 
-
-
 export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
   const order = {
     key: openItem.id,
@@ -61,6 +64,7 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
     setOpenItem(null);
   }
 
+  const useCounts = useCount()
   return <>
     <Overlay id='overlay' onClick={(e) => setOpenItem(null)} />
     <ModalStyle>
@@ -68,9 +72,10 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
       <Content>
         <ContentHeader>
           <div>{openItem.name}</div>
-          <div>{openItem.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}</div>
+          <div>{toLocaleLang(openItem.price)}</div>
         </ContentHeader>
-
+        <CountItem {...useCounts} />
+        <TotalCountPrice {...useCounts} {...openItem} />
         <CheckoutButton onClick={addOrder}>Добавить</CheckoutButton>
       </Content>
     </ModalStyle>

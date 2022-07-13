@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import trashItem from "../svg/trash.svg";
-
+import trashItem from "../../svg/trash.svg";
+import { toLocaleLang } from "../basicFunction";
 
 const OrderItemStyled = styled.li`
   display: flex;
@@ -33,11 +33,18 @@ const ItemPriceStyle = styled.span`
 `;
 
 
-export const OrderItem = ({ order }) => (
-  <OrderItemStyled>
+export const OrderItem = ({ order, orders, setOrders }) => {
+
+  function deleteOrder(e) {
+    if (e.target.tagName === 'BUTTON')
+      console.log(e.currentTarget.querySelector('span').innerText)
+    setOrders([orders.filter(order => order.name !== e.currentTarget.querySelector('span').innerText)])
+  }
+
+  return < OrderItemStyled onClick={deleteOrder} >
     <ItemNameStyle>{order.name}</ItemNameStyle>
     <ItemQuantStyle>1шт.</ItemQuantStyle>
-    <ItemPriceStyle>{order.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}</ItemPriceStyle>
+    <ItemPriceStyle>{toLocaleLang(order.price)}</ItemPriceStyle>
     <TrashStyled />
-  </OrderItemStyled>
-)
+  </OrderItemStyled >
+}
