@@ -46,8 +46,21 @@ const ContentHeader = styled.div`
   justify-content: space-evenly;
 `
 
-export const ModalWindow = ({ openItem, setOpenItem }) => {
-  if (!openItem) return null
+
+
+export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
+  const order = {
+    key: openItem.id,
+    name: openItem.name,
+    price: openItem.price
+  }
+
+  const addOrder = () => {
+    setOrders([...orders, order])
+    console.log(orders)
+    setOpenItem(null);
+  }
+
   return <>
     <Overlay id='overlay' onClick={(e) => setOpenItem(null)} />
     <ModalStyle>
@@ -58,7 +71,7 @@ export const ModalWindow = ({ openItem, setOpenItem }) => {
           <div>{openItem.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}</div>
         </ContentHeader>
 
-        <CheckoutButton>Добавить</CheckoutButton>
+        <CheckoutButton onClick={addOrder}>Добавить</CheckoutButton>
       </Content>
     </ModalStyle>
   </>

@@ -5,18 +5,23 @@ import { GlobalStyle } from './components/GlobalStyle';
 import { ModalWindow } from './components/ModalWindow';
 import { Order } from './components/Order';
 import { Main } from './components/Main';
+import { useStateOpenItem } from './components/useStateOpenItem'
+import { useStateOrderItem } from './components/useStateOrderItem'
 
 function App() {
-  const [openItem, setOpenItem] = React.useState(null)
+  const useOpenItem = useStateOpenItem();
+  const useOrderItem = useStateOrderItem();
+
   return (
     <>
       <GlobalStyle />
       <Header />
       <Main>
-        <Order />
-        <Menu setOpenItem={setOpenItem} />
+        <Order {...useOrderItem} />
+        <Menu {...useOpenItem} />
       </Main>
-      <ModalWindow openItem={openItem} setOpenItem={setOpenItem} />
+      {useOpenItem.openItem && <ModalWindow {...useOpenItem} {...useOrderItem} />}
+
     </>
   );
 }
