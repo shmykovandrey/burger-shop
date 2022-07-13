@@ -49,7 +49,7 @@ export const Order = ({ orders, setOrders }) => {
           }
         </OrderList>
       </OrderBody>
-      <OrderTotal />
+      <OrderTotal orders={orders} />
       <CheckoutButton>Оформить</CheckoutButton>
     </OrderStyle>
   )

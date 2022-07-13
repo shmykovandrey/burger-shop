@@ -43,7 +43,7 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-`
+  `
 
 const ContentHeader = styled.div`
   width: 600px;
@@ -52,19 +52,20 @@ const ContentHeader = styled.div`
 `
 
 export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
+  const useCounts = useCount()
+
   const order = {
     key: openItem.id,
     name: openItem.name,
-    price: openItem.price
+    count: useCounts.count,
+    price: useCounts.count * openItem.price
   }
 
   const addOrder = () => {
     setOrders([...orders, order])
-    console.log(orders)
     setOpenItem(null);
   }
 
-  const useCounts = useCount()
   return <>
     <Overlay id='overlay' onClick={(e) => setOpenItem(null)} />
     <ModalStyle>

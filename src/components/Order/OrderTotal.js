@@ -18,10 +18,10 @@ const SpanStyled = styled.span`
   padding: 10px;
 `;
 
-export const OrderTotal = () => (
+export const OrderTotal = ({ orders }) => (
   <OrderTotalStyle>
     <SpanStyled>ИТОГО</SpanStyled>
-    <SpanStyled>5</SpanStyled>
-    <SpanStyled>{toLocaleLang(850)}</SpanStyled>
+    <SpanStyled>{orders.reduce((res, item) => res = res + item.count, 0)} шт.</SpanStyled>
+    <SpanStyled>{toLocaleLang(orders.reduce((res, item) => res = res + item.price, 0))}</SpanStyled>
   </OrderTotalStyle>
 )
