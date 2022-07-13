@@ -4,8 +4,10 @@ import { MenuList } from "./MenuList";
 import Banner from "../svg/banner.png"
 
 const UlList = styled.ul`
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   row-gap: 31px;
   column-gap: 94px;
 `
@@ -17,16 +19,24 @@ const BannerStyle = styled.img`
   background-position: center;
 `
 
+const MenuStyled = styled.div`
+  background-color: #fff;
+`;
+
+const H2MenuStyled = styled.h2`
+padding: 20px;
+`;
+
 export const Menu = ({ setOpenItem }) => (
-  <div>
+  <MenuStyled>
     <BannerStyle src={Banner} alt='Banner' />
-    <h2>Бургеры</h2>
+    <H2MenuStyled>Бургеры</H2MenuStyled>
     <UlList>
       <MenuList item='burger' setOpenItem={setOpenItem} />
     </UlList>
-    <h2>Закуски/Напитки</h2>
+    <H2MenuStyled>Закуски/Напитки</H2MenuStyled>
     <UlList>
       <MenuList item='other' setOpenItem={setOpenItem} />
     </UlList>
-  </div>
+  </MenuStyled>
 );

@@ -57,7 +57,8 @@ export const ModalWindow = ({ openItem, setOpenItem }) => {
           <div>{openItem.name}</div>
           <div>{openItem.price.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}</div>
         </ContentHeader>
-        <CheckoutButton />
+
+        <CheckoutButton>Добавить</CheckoutButton>
       </Content>
     </ModalStyle>
   </>

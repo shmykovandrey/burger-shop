@@ -1,9 +1,11 @@
 import styled from "styled-components"
 
 export const Main = styled.main`
-    max-width: 1200px;
+    margin: 0 auto;
+    max-width: 1440px;
     display: flex;
     flex-direction: row;
+    min-height: 100%;
 `
 
 
