@@ -32,11 +32,10 @@ const OrderTitle = styled.h2`
 `
 
 const OrderList = styled.ul`
-width: 100%;
+  margin-left: 10px;
 `;
 
 export const Order = ({ orders, setOrders }) => {
-  console.log(orders)
   return (
     <OrderStyle>
       <OrderBody>

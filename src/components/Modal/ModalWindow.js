@@ -58,12 +58,13 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
 
 
   const addOrder = () => {
+    const toppingsCount = !useToppingss.toppings ? 0 : useToppingss.toppings.filter(item => item.checked).length
 
     const order = {
       key: openItem.id,
       name: openItem.name,
       count: useCounts.count,
-      price: useCounts.count * openItem.price,
+      price: useCounts.count * (openItem.price + toppingsCount * openItem.price * 0.1),
       toppings: useToppingss.toppings || []
     }
 

@@ -45,13 +45,14 @@ const DivTopping = styled.div`
 
 export const OrderItem = ({ order, orders, setOrders }) => {
 
-  function deleteOrder(e) {
-    if (e.target.tagName === 'BUTTON')
-      console.log(e.currentTarget.querySelector('span').innerText)
-    setOrders([orders.filter(order => order.name !== e.currentTarget.querySelector('span').innerText)])
-  }
+  // function deleteOrder(e) {
+  //   if (e.target.tagName === 'BUTTON')
+  //     console.log(e.currentTarget.querySelector('span').innerText)
+  //   setOrders([orders.filter(order => order.name !== e.currentTarget.querySelector('span').innerText)])
+  // }
 
-  return <><OrderItemStyled onClick={deleteOrder} >
+  // return <><OrderItemStyled onClick={deleteOrder} >
+  return <><OrderItemStyled>
     <ItemNameStyle>{order.name}</ItemNameStyle>
     <ItemQuantStyle>{order.count} шт.</ItemQuantStyle>
     <ItemPriceStyle>{toLocaleLang(order.price)}</ItemPriceStyle>
