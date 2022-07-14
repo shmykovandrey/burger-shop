@@ -4,7 +4,8 @@ import { CountItem } from "./CountItem"
 import { TotalCountPrice } from "./TotalCountPrice"
 import { useCount } from "../Hooks/useCount";
 import { toLocaleLang } from "../basicFunction";
-
+import { Toppings } from "./Toppings";
+import { useToppings } from "../Hooks/useToppings";
 
 const Overlay = styled.div`
   position: fixed;
@@ -53,15 +54,19 @@ const ContentHeader = styled.div`
 
 export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
   const useCounts = useCount()
+  const useToppingss = useToppings(openItem.toppings)
 
-  const order = {
-    key: openItem.id,
-    name: openItem.name,
-    count: useCounts.count,
-    price: useCounts.count * openItem.price
-  }
 
   const addOrder = () => {
+
+    const order = {
+      key: openItem.id,
+      name: openItem.name,
+      count: useCounts.count,
+      price: useCounts.count * openItem.price,
+      toppings: useToppingss.toppings || []
+    }
+
     setOrders([...orders, order])
     setOpenItem(null);
   }
@@ -76,7 +81,8 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
           <div>{toLocaleLang(openItem.price)}</div>
         </ContentHeader>
         <CountItem {...useCounts} />
-        <TotalCountPrice {...useCounts} {...openItem} />
+        {openItem.toppings && <Toppings {...useToppingss} />}
+        <TotalCountPrice {...useCounts} {...openItem} {...useToppingss} />
         <CheckoutButton onClick={addOrder}>Добавить</CheckoutButton>
       </Content>
     </ModalStyle>

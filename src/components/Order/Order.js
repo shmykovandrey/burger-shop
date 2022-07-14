@@ -4,6 +4,7 @@ import { CheckoutButton } from "../Styled/CheckoutButton";
 import { OrderItem } from "./OrderItem"
 import { OrderTotal } from "./OrderTotal"
 
+
 const OrderStyle = styled.div`
   min-width: 380px;
   height: calc(100vh - 80px);
@@ -23,10 +24,6 @@ const OrderBody = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  & div:last-child{
-
-    background-color: green;
-  }
 `
 
 const OrderTitle = styled.h2`
@@ -39,6 +36,7 @@ width: 100%;
 `;
 
 export const Order = ({ orders, setOrders }) => {
+  console.log(orders)
   return (
     <OrderStyle>
       <OrderBody>
