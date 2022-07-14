@@ -6,6 +6,9 @@ import { useCount } from "../Hooks/useCount";
 import { toLocaleLang } from "../basicFunction";
 import { Toppings } from "./Toppings";
 import { useToppings } from "../Hooks/useToppings";
+import { Choices } from "./Choices";
+import { useChoices } from "../Hooks/useChoices";
+
 
 const Overlay = styled.div`
   position: fixed;
@@ -55,7 +58,7 @@ const ContentHeader = styled.div`
 export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
   const useCounts = useCount()
   const useToppingss = useToppings(openItem.toppings)
-
+  const choices = useChoices(openItem.choices);
 
   const addOrder = () => {
     const toppingsCount = !useToppingss.toppings ? 0 : useToppingss.toppings.filter(item => item.checked).length
@@ -65,7 +68,8 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
       name: openItem.name,
       count: useCounts.count,
       price: useCounts.count * (openItem.price + toppingsCount * openItem.price * 0.1),
-      toppings: useToppingss.toppings || []
+      toppings: useToppingss.toppings || [],
+      choice: choices.choice,
     }
 
     setOrders([...orders, order])
@@ -83,8 +87,12 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
         </ContentHeader>
         <CountItem {...useCounts} />
         {openItem.toppings && <Toppings {...useToppingss} />}
+        {openItem.choices && <Choices {...choices} openItem={openItem} />}
         <TotalCountPrice {...useCounts} {...openItem} {...useToppingss} />
-        <CheckoutButton onClick={addOrder}>Добавить</CheckoutButton>
+        <CheckoutButton
+          onClick={addOrder}
+          disabled={openItem.choices && !choices.choice}
+        >Добавить</CheckoutButton>
       </Content>
     </ModalStyle>
   </>

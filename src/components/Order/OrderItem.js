@@ -53,7 +53,7 @@ export const OrderItem = ({ order, orders, setOrders }) => {
 
   // return <><OrderItemStyled onClick={deleteOrder} >
   return <><OrderItemStyled>
-    <ItemNameStyle>{order.name}</ItemNameStyle>
+    <ItemNameStyle>{order.name} {order.choice}</ItemNameStyle>
     <ItemQuantStyle>{order.count} шт.</ItemQuantStyle>
     <ItemPriceStyle>{toLocaleLang(order.price)}</ItemPriceStyle>
     <TrashStyled />

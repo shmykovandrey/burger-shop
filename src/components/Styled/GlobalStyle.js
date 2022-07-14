@@ -10,7 +10,7 @@ html{
 *::before,
 *::after,
 p{
-  box-sizing:border-box;
+  box-sizing: border-box;
   margin:0px;
   padding:0px;
 }

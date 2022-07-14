@@ -7,6 +7,7 @@ const ToppingStyle = styled.div`
   width: 500px;
   margin: 0 auto;
   text-align: center;
+  font-family: Roboto, sans-serif;
 `;
 
 const ToppingCheckbox = styled.input`
