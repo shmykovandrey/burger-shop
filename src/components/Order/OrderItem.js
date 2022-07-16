@@ -43,13 +43,18 @@ const DivTopping = styled.div`
   text-align: left;
 `;
 
-export const OrderItem = ({ order, orders, setOrders }) => {
+export const OrderItem = ({ order, orders, setOrders, setOpenItem }) => {
 
   function deleteOrder(order) {
     setOrders(orders.filter(item => item.key !== order.key))
   }
 
-  return <><OrderItemStyled>
+  function editOrder(order) {
+    console.log(order)
+    setOpenItem(order)
+  }
+
+  return <><OrderItemStyled onClick={() => editOrder(order)}>
     <ItemNameStyle>{order.name} {order.choice}</ItemNameStyle>
     <ItemQuantStyle>{order.count} шт.</ItemQuantStyle>
     <ItemPriceStyle>{toLocaleLang(order.price)}</ItemPriceStyle>

@@ -63,8 +63,8 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
   const addOrder = () => {
     const toppingsCount = !useToppingss.toppings ? 0 : useToppingss.toppings.filter(item => item.checked).length
     const order = {
+      ...openItem,
       key: Math.random(),
-      name: openItem.name,
       count: useCounts.count,
       price: useCounts.count * (openItem.price + toppingsCount * openItem.price * 0.1),
       toppings: useToppingss.toppings || [],
@@ -75,6 +75,7 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
     setOpenItem(null);
   }
 
+  console.log(openItem)
   return <>
     <Overlay id='overlay' onClick={(e) => setOpenItem(null)} />
     <ModalStyle>
@@ -84,8 +85,8 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
           <div>{openItem.name}</div>
           <div>{toLocaleLang(openItem.price)}</div>
         </ContentHeader>
-        <CountItem {...useCounts} />
-        {openItem.toppings && <Toppings {...useToppingss} />}
+        <CountItem {...useCounts} openItem={openItem} />
+        {/* {openItem.toppings && <Toppings {...useToppingss} />} */}
         {openItem.choices && <Choices {...choices} openItem={openItem} />}
         <TotalCountPrice {...useCounts} {...openItem} {...useToppingss} />
         <CheckoutButton

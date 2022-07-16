@@ -17,7 +17,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <Main>
-        <Order {...useOrderItem} />
+        <Order {...useOrderItem} {...useOpenItem} />
         <Menu {...useOpenItem} />
       </Main>
       {useOpenItem.openItem && <ModalWindow {...useOpenItem} {...useOrderItem} />}

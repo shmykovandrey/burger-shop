@@ -35,14 +35,14 @@ const OrderList = styled.ul`
   margin-left: 10px;
 `;
 
-export const Order = ({ orders, setOrders }) => {
+export const Order = ({ orders, setOrders, setOpenItem }) => {
   return (
     <OrderStyle>
       <OrderBody>
         <OrderTitle>ВАШ ЗАКАЗ</OrderTitle>
         <OrderList>
           {orders.length === 0 ? <p>Ваш заказ пуст</p> :
-            orders.map((order, i) => <OrderItem key={i} order={order} orders={orders} setOrders={setOrders} />)
+            orders.map((order, i) => <OrderItem key={i} order={order} orders={orders} setOrders={setOrders} setOpenItem={setOpenItem} />)
           }
         </OrderList>
       </OrderBody>
