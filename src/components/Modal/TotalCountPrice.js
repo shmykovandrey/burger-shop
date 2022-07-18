@@ -5,6 +5,7 @@ import { toLocaleLang } from "../basicFunction";
 const TotalCountPriceStyle = styled.div``;
 
 export const TotalCountPrice = ({ count, price, toppings }) => {
+  console.log(count)
   const toppingsCount = !toppings ? 0 : toppings.filter(item => item.checked).length
   return (<TotalCountPriceStyle>
     <span>Итого:  </span>

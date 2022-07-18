@@ -79,9 +79,11 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
     const toppingsCount = !useToppingss.toppings ? 0 : useToppingss.toppings.filter(item => item.checked).length
     setOrders([...orders.map(item => {
       if (item.key === openItem.key) {
+        console.log(item)
+        console.log(openItem)
         item.count = useCounts.count;
         item.totalPrice = useCounts.count * (openItem.price + toppingsCount * openItem.price * 0.1);
-        item.toppings = useToppingss.toppings;
+        item.toppings = useToppingss.toppings || [];
         item.choice = choices.choice;
       }
       return item
@@ -99,7 +101,7 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
           <div>{toLocaleLang(openItem.price)}</div>
         </ContentHeader>
         <CountItem {...useCounts} openItem={openItem} />
-        {openItem.toppings && <Toppings {...useToppingss} />}
+        {openItem.toppings && <Toppings {...useToppingss} openItem={openItem} />}
         {openItem.choices && <Choices {...choices} openItem={openItem} />}
         <TotalCountPrice {...useCounts} {...openItem} {...useToppingss} />
         {openItem.key ?

@@ -19,8 +19,14 @@ const ToppingSpan = styled.span`
   display: block;
 `;
 
-export function Toppings({ toppings, toppingSelect }) {
-
+export function Toppings({ toppings, toppingSelect, openItem }) {
+  if (openItem.key) return <ToppingStyle>
+    {openItem.toppings.map((item, index) => {
+      return <ToppingSpan key={index}>
+        <ToppingName>{item.name}</ToppingName>
+        <ToppingCheckbox type='checkbox' checked={item.checked} onChange={() => toppingSelect(index)} />
+      </ToppingSpan>
+    })}</ToppingStyle >
 
   return <ToppingStyle>
     {toppings.map((item, index) => {

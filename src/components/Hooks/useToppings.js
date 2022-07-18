@@ -2,6 +2,10 @@ import { useState } from "react";
 
 function transformTopping(toppings) {
   if (!toppings) return null
+  if (toppings[0].name) {
+    console.log('toppings')
+    return toppings
+  }
   return toppings.map(item => ({
     name: item,
     checked: false
