@@ -56,7 +56,7 @@ const ContentHeader = styled.div`
 `
 
 export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
-  const useCounts = useCount()
+  const useCounts = useCount(openItem.count)
   const useToppingss = useToppings(openItem.toppings)
   const choices = useChoices(openItem.choices);
 
@@ -66,7 +66,7 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
       ...openItem,
       key: Math.random(),
       count: useCounts.count,
-      price: useCounts.count * (openItem.price + toppingsCount * openItem.price * 0.1),
+      totalPrice: useCounts.count * (openItem.price + toppingsCount * openItem.price * 0.1),
       toppings: useToppingss.toppings || [],
       choice: choices.choice,
     }
@@ -75,7 +75,20 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
     setOpenItem(null);
   }
 
-  console.log(openItem)
+  function editOrder() {
+    const toppingsCount = !useToppingss.toppings ? 0 : useToppingss.toppings.filter(item => item.checked).length
+    setOrders([...orders.map(item => {
+      if (item.key === openItem.key) {
+        item.count = useCounts.count;
+        item.totalPrice = useCounts.count * (openItem.price + toppingsCount * openItem.price * 0.1);
+        item.toppings = useToppingss.toppings;
+        item.choice = choices.choice;
+      }
+      return item
+    })])
+    setOpenItem(null)
+  }
+
   return <>
     <Overlay id='overlay' onClick={(e) => setOpenItem(null)} />
     <ModalStyle>
@@ -86,13 +99,17 @@ export const ModalWindow = ({ openItem, setOpenItem, orders, setOrders }) => {
           <div>{toLocaleLang(openItem.price)}</div>
         </ContentHeader>
         <CountItem {...useCounts} openItem={openItem} />
-        {/* {openItem.toppings && <Toppings {...useToppingss} />} */}
+        {openItem.toppings && <Toppings {...useToppingss} />}
         {openItem.choices && <Choices {...choices} openItem={openItem} />}
         <TotalCountPrice {...useCounts} {...openItem} {...useToppingss} />
-        <CheckoutButton
-          onClick={addOrder}
-          disabled={openItem.choices && !choices.choice}
-        >Добавить</CheckoutButton>
+        {openItem.key ?
+          <CheckoutButton
+            onClick={editOrder}
+          >Редактировать</CheckoutButton> :
+          <CheckoutButton
+            onClick={addOrder}
+            disabled={openItem.choices && !choices.choice}
+          >Добавить</CheckoutButton>}
       </Content>
     </ModalStyle>
   </>

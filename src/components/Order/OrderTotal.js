@@ -22,6 +22,6 @@ export const OrderTotal = ({ orders }) => (
   <OrderTotalStyle>
     <SpanStyled>ИТОГО</SpanStyled>
     <SpanStyled>{orders.reduce((res, item) => res = res + item.count, 0)} шт.</SpanStyled>
-    <SpanStyled>{toLocaleLang(orders.reduce((res, item) => res = res + item.price, 0))}</SpanStyled>
+    <SpanStyled>{toLocaleLang(orders.reduce((res, item) => res = res + item.totalPrice, 0))}</SpanStyled>
   </OrderTotalStyle>
 )

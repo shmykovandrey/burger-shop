@@ -49,15 +49,16 @@ export const OrderItem = ({ order, orders, setOrders, setOpenItem }) => {
     setOrders(orders.filter(item => item.key !== order.key))
   }
 
-  function editOrder(order) {
-    console.log(order)
-    setOpenItem(order)
+  function editOrder(e) {
+    if (e.target.tagName !== 'BUTTON') {
+      setOpenItem(order)
+    }
   }
 
-  return <><OrderItemStyled onClick={() => editOrder(order)}>
+  return <><OrderItemStyled onClick={editOrder}>
     <ItemNameStyle>{order.name} {order.choice}</ItemNameStyle>
     <ItemQuantStyle>{order.count} шт.</ItemQuantStyle>
-    <ItemPriceStyle>{toLocaleLang(order.price)}</ItemPriceStyle>
+    <ItemPriceStyle>{toLocaleLang(order.totalPrice)}</ItemPriceStyle>
     <TrashStyled onClick={() => deleteOrder(order)} />
   </OrderItemStyled >
     <DivTopping>{order.toppings && order.toppings.map(item => item.checked && <OrderToppings>{item.name}</OrderToppings>)}</DivTopping>
